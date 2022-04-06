@@ -1,9 +1,10 @@
 # Ring Central Fax Bridge for MaxFax -push to Github
+
 import os.path
 import sys
-import main
 from ringcentral import SDK
-from main import FaxValidate, logger
+import main
+from main import FaxValidate, logger, rc_logger
 
 # Receive Parameters from MaxFax
 recipient = str(sys.argv[1])
@@ -43,21 +44,21 @@ if FaxValidate.valid_num(recipient, sender):
 
             builder.add(attachment)
 
-            # request = builder.request('/account/~/extension/~/fax')
+            request = builder.request('/account/~/extension/~/fax')
 
-            # resp = platform.send_request(request)
+            resp = platform.send_request(request)
 
             # Write Response to Response Directory
+            j_resp = '_' + recipient + '_' + os.path.basename(faxdoc)+'_'+resp.json().messageStatus
 
-            # full_jsonpath = main.rc_confirm(resp.json().messageStatus)
-            resp = '_TestFax'
-            full_jsonpath = main.rc_confirm(resp)
+            full_jsonpath = main.rc_confirm(j_resp)
 
             with open(full_jsonpath, 'w+') as f_resp:
-                f_resp.write(recipient+'_'+os.path.basename(faxdoc)+'_'+full_jsonpath)
+                f_resp.write(recipient + '_' + os.path.basename(faxdoc))
                 f_resp.close()
-            # logger.info('Fax sent. Message status: ' + resp.json().messageStatus)
-            logger.info('Fax sent. Message status: '+full_jsonpath)
+
+                # Write Transmission Events in Ring Central log file
+                rc_logger.info('__' + recipient + '__' + os.path.basename(faxdoc))
 
         except Exception as e:
             logger.critical("Ring Central Exception occurred", exc_info=True)

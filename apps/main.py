@@ -12,27 +12,33 @@ for xdir in ['Outbound', 'Response', 'Logs']:
         os.mkdir(xdir)
 
 
-# Setup log creation
+# Setup error log creation
+
+logging.basicConfig(encoding='utf-8', level=logging.DEBUG)
 logger = logging.getLogger(__name__)
-f_handler = RotatingFileHandler(basedir+'/Logs/faxservice.log', maxBytes=20480, backupCount=30)
-f_handler.setLevel(logging.INFO)
+f_handler = RotatingFileHandler(basedir+'\\Logs\\faxservice.log', maxBytes=20480, backupCount=10)
 f_format = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 f_handler.setFormatter(f_format)
 logger.addHandler(f_handler)
 
-# Setup directory path for json response's from Ring Central
+# Setup RingCentral Fax Transmission logging
 
+rc_logger = logging.getLogger()
+rc_handler = RotatingFileHandler(basedir+'\\Logs\\RC_Transmission.log', maxBytes=20480, backupCount=30)
+rc_format = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+rc_handler.setFormatter(f_format)
+rc_logger.addHandler(rc_handler)
+
+# Setup directory path for json response's from Ring Central
 
 def rc_confirm(response):
     f_json = str(datetime.datetime.now().strftime('%Y%m%d_%H%M%S')+'_'+response)
     f_w_response = os.path.join(basedir + '\\Response\\' + f_json)
     return f_w_response
 
-# Create Class to manage validation of parameters passed for faxing
-
 
 class FaxValidate:
-
+    # Create Class to manage validation of parameters passed for faxing
     # Validate the fax numbers passed to RingCentral function
 
     def valid_num(fx_to, fx_from):
