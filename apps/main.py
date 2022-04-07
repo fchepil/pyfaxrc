@@ -64,3 +64,6 @@ class FaxValidate:
 # Make Methods Static
 FaxValidate.valid_num = staticmethod(FaxValidate.valid_num)
 FaxValidate.valid_doc = staticmethod(FaxValidate.valid_doc)
+
+# if __name__ == '__main__':
+#    app.run()
