@@ -51,3 +51,43 @@ OSError: [Errno 22] Invalid argument: 'E:\\pyfaxrc\\apps\\Response\\20220406_153
 2022-04-06 15:49:37,484 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): platform.devtest.ringcentral.com:443
 2022-04-06 15:49:38,009 - urllib3.connectionpool - DEBUG - https://platform.devtest.ringcentral.com:443 "POST /restapi/v1.0/account/~/extension/~/fax HTTP/1.1" 200 890
 2022-04-06 15:49:38,012 - root - INFO - __+12047861522__test.pdf
+2022-04-08 16:22:57,681 - main - INFO - +12047861522 test.pdf +12044799001
+2022-04-08 16:22:57,683 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): platform.devtest.ringcentral.com:443
+2022-04-08 16:22:58,338 - urllib3.connectionpool - DEBUG - https://platform.devtest.ringcentral.com:443 "POST /restapi/oauth/token HTTP/1.1" 200 911
+2022-04-08 16:22:58,348 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): platform.devtest.ringcentral.com:443
+2022-04-08 16:22:58,926 - urllib3.connectionpool - DEBUG - https://platform.devtest.ringcentral.com:443 "POST /restapi/v1.0/account/~/extension/~/fax HTTP/1.1" 200 890
+2022-04-08 16:22:58,929 - root - INFO - __+12047861522__test.pdf
+2022-04-12 10:35:22,689 - main - INFO - +12047861522 tes2.pdf +12044799001
+2022-04-12 10:35:22,721 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): platform.devtest.ringcentral.com:443
+2022-04-12 10:35:23,224 - urllib3.connectionpool - DEBUG - https://platform.devtest.ringcentral.com:443 "POST /restapi/oauth/token HTTP/1.1" 200 946
+2022-04-12 10:35:23,224 - main - CRITICAL - Ring Central Exception occurred
+Traceback (most recent call last):
+  File "E:\pyfaxrc\apps\pyfaxrc.py", line 41, in <module>
+    with open(faxdoc, encoding="utf8", errors='ignore') as f:
+FileNotFoundError: [Errno 2] No such file or directory: 'tes2.pdf'
+2022-04-12 10:35:47,962 - main - INFO - +12047861522 test.pdf +12044799001
+2022-04-12 10:35:47,962 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): platform.devtest.ringcentral.com:443
+2022-04-12 10:35:48,330 - urllib3.connectionpool - DEBUG - https://platform.devtest.ringcentral.com:443 "POST /restapi/oauth/token HTTP/1.1" 200 946
+2022-04-12 10:35:48,330 - main - CRITICAL - Ring Central Exception occurred
+Traceback (most recent call last):
+  File "E:\pyfaxrc\apps\pyfaxrc.py", line 41, in <module>
+    with open(faxdoc, encoding="utf8", errors='ignore') as f:
+FileNotFoundError: [Errno 2] No such file or directory: 'test.pdf'
+2022-04-12 10:36:40,236 - main - INFO - +12047861522 test.pdf +12044799001
+2022-04-12 10:36:40,236 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): platform.devtest.ringcentral.com:443
+2022-04-12 10:36:40,622 - urllib3.connectionpool - DEBUG - https://platform.devtest.ringcentral.com:443 "POST /restapi/oauth/token HTTP/1.1" 200 946
+2022-04-12 10:36:40,638 - main - CRITICAL - Ring Central Exception occurred
+Traceback (most recent call last):
+  File "E:\pyfaxrc\apps\pyfaxrc.py", line 41, in <module>
+    with open(faxdoc, encoding="utf8", errors='ignore') as f:
+FileNotFoundError: [Errno 2] No such file or directory: 'test.pdf'
+2022-04-12 11:05:06,079 - main - INFO - +12047861522 E:\pyfaxrc\apps\Outbound\test.pdf +12044799001
+2022-04-12 11:05:06,079 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): platform.devtest.ringcentral.com:443
+2022-04-12 11:05:06,474 - urllib3.connectionpool - DEBUG - https://platform.devtest.ringcentral.com:443 "POST /restapi/oauth/token HTTP/1.1" 200 946
+2022-04-12 11:05:06,506 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): platform.devtest.ringcentral.com:443
+2022-04-12 11:05:07,076 - urllib3.connectionpool - DEBUG - https://platform.devtest.ringcentral.com:443 "POST /restapi/v1.0/account/~/extension/~/fax HTTP/1.1" 200 890
+2022-04-12 11:05:07,076 - root - INFO - __+12047861522__test.pdf
+2022-04-12 11:28:06,346 - main - INFO - +12047861522 test.pdf +12044799001
+2022-04-12 11:28:06,346 - main - ERROR - Document not found test.pdf
+2022-04-12 11:28:06,346 - main - ERROR - Fax document has invalid extension
+NoneType: None

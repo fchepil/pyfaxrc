@@ -1,33 +1,4 @@
-Skip to content
-Product 
-Team
-Enterprise
-Explore 
-Marketplace
-Pricing 
-Search
-Sign in
-Sign up
-grokify
-/
-ringcentral-demos-oauth
-Public
-forked from ringcentral/ringcentral-demos-oauth
-Code
-Pull requests
-Actions
-Projects
-Wiki
-Security
-Insights
-ringcentral-demos-oauth/python-bottle/app.py /
-@grokify
-grokify update style
-Latest commit e374d3f on Apr 24, 2016
- History
- 1 contributor
-70 lines (56 sloc)  2.25 KB
-   
+
 import os
 from os.path import join, dirname
 from dotenv import load_dotenv
@@ -98,16 +69,3 @@ def callback():
     return template('index', authorize_uri='', redirect_uri='', token_json=token_json)
 
 run(host=os.environ.get('MY_APP_HOST'), port=os.environ.get('MY_APP_PORT'), debug=True)
-© 2022 GitHub, Inc.
-Terms
-Privacy
-Security
-Status
-Docs
-Contact GitHub
-Pricing
-API
-Training
-Blog
-About
-Loading complete

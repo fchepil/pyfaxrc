@@ -1,0 +1,4 @@
+requests>=2.27.1
+python-dotenv>=0.20.0
+bottle>=0.12.19
+ringcentral>=0.7.12
