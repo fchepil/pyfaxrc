@@ -9,17 +9,22 @@ from dotenv import load_dotenv
 load_dotenv()
 
 # Check initial Application environment and create if missing directories
-basedir = os.getenv('BASE_DIR')
+basedir = os.path.abspath(str(os.getenv('BASE_DIR')))
+print (basedir)
 obdir = os.getenv('OB_DIR')
-obdir = str(basedir)+str(obdir)
-respdir = os.getenv('REP_DIR')
-respdir =str(basedir)+str(respdir)
+obdir = str(basedir) + '\\' + str(obdir)
+print(obdir)
+respdir = os.getenv('RESP_DIR')
+respdir =str(basedir) + '\\' + str(respdir)
+print(respdir)
 logdir = os.getenv('LOGS_DIR')
-logdir = str(basedir)+str(logdir)
+logdir = str(basedir) + '\\' + str(logdir)
+print(logdir)
 
 for xdir in [obdir, respdir, logdir]:
     if not os.path.exists(xdir):
         os.mkdir(xdir)
+
 
 
 # Setup error log creation
