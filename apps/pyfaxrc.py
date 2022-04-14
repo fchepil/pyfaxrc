@@ -63,8 +63,8 @@ if valid_num(recipient, sender):
                 f_resp.close()
 
                 # Write Transmission Events in Ring Central log file
-                rc_logger.info('__' + recipient + '__' + os.path.basename(faxdoc))
-
+                rc_logger.info(os.path.join(main.basedir, main.respdir, recipient + '__' + os.path.basename(faxdoc))
+                               
         except Exception as e:
             logger.critical("Ring Central Exception occurred", exc_info=True)
     else:
