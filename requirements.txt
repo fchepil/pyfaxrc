@@ -1,4 +1,7 @@
-requests>=2.27.1
-python-dotenv>=0.20.0
 bottle>=0.12.19
+observable==0.3.*
+pubnub==4.*
+pycryptodome==3.*
+requests==2.*
+python-dotenv>=0.20.0
 ringcentral>=0.7.12
